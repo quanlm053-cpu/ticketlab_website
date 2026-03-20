@@ -74,7 +74,9 @@ export default function EventDetailsPage() {
 
   const ticketTypes = event.ticketTypes || [];
   const selectedType = ticketTypes.find((t: any) => t.name === selectedTicketType);
-  const totalPrice = (selectedType?.price || 0) * quantity;
+  // Use selected ticket type price, or fall back to the events base price when no ticket types are available
+  const ticketUnitPrice = selectedType?.price ?? event.price ?? 0;
+  const totalPrice = ticketUnitPrice * quantity;
 
   const handleBooking = () => {
     const booking = {

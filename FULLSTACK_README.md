@@ -1,61 +1,61 @@
-# TicketLab - Full Stack Ticket Booking System
+# TicketLab - Hệ thống Đặt Vé Sự kiện Full Stack
 
-A complete web application for online event ticket booking built with Next.js 16, Express.js, and SQL Server.
+Một ứng dụng web hoàn chỉnh để đặt vé sự kiện trực tuyến, được xây dựng bằng Next.js 16, Express.js và SQL Server.
 
-## Project Overview
+## Tổng quan Dự án
 
-**TicketLab** is a full-featured ticketing platform with:
-- User authentication (register/login)
-- Event browsing and filtering by category
-- Ticket purchase workflow
-- Payment integration
-- User ticket management
-- Admin dashboard for event and order management
-- Real-time database persistence
+**TicketLab** là một nền tảng vé đầy đủ tính năng với:
+- Xác thực người dùng (đăng ký/đăng nhập)
+- Duyệt và lọc sự kiện theo danh mục
+- Quy trình mua vé
+- Tích hợp thanh toán mô phỏng
+- Quản lý vé của người dùng
+- Bảng điều khiển quản trị để quản lý sự kiện và đơn hàng
+- Lưu trữ cơ sở dữ liệu thời gian thực
 
-## Technology Stack
+## Ngăn xếp Công nghệ
 
 ### Frontend
 - **Framework**: Next.js 16 (App Router)
-- **UI Library**: shadcn/ui + Tailwind CSS v4
-- **State Management**: Zustand
+- **Thư viện UI**: shadcn/ui + Tailwind CSS v4
+- **Quản lý Trạng thái**: Zustand chứa dữ liệu dùng chung
 - **HTTP Client**: Fetch API
-- **Language**: TypeScript
+- **Ngôn ngữ**: TypeScript
 
 ### Backend
 - **Runtime**: Node.js
 - **Framework**: Express.js
-- **Database**: SQL Server 2019+
-- **Authentication**: JWT (jsonwebtoken)
-- **Password Hashing**: bcryptjs
-- **API Testing**: Postman
+- **Cơ sở dữ liệu**: SQL Server 2019+
+- **Xác thực**: JWT (jsonwebtoken)
+- **Mã hóa Mật khẩu**: bcryptjs
+- **Kiểm tra API**: Postman
 
-## Directory Structure
+## Cấu trúc Thư mục
 
 ```
 ticketlab/
-├── app/                          # Next.js app directory
+├── app/                          # Thư mục app Next.js
 │   ├── api/                      # API routes
-│   ├── dang-nhap/               # Login page
-│   ├── dang-ky/                 # Register page
-│   ├── trang-chu/               # Home page
-│   ├── tim-kiem/                # Search/browse page
-│   ├── dat-ve/[id]/             # Ticket booking page
-│   ├── thanh-toan/              # Payment page
-│   ├── xac-nhan-thanh-toan/     # Payment confirmation
-│   ├── quan-ly-ve/              # User ticket management
-│   └── admin/                   # Admin dashboard
+│   ├── dang-nhap/               # Trang đăng nhập
+│   ├── dang-ky/                 # Trang đăng ký
+│   ├── trang-chu/               # Trang chủ
+│   ├── tim-kiem/                # Trang tìm kiếm/duyệt
+│   ├── dat-ve/[id]/             # Trang đặt vé
+│   ├── thanh-toan/              # Trang thanh toán
+│   ├── xac-nhan-thanh-toan/     # Xác nhận thanh toán
+│   ├── quan-ly-ve/              # Quản lý vé người dùng
+│   └── admin/                   # Bảng điều khiển quản trị
 │       ├── dashboard/
 │       ├── quan-ly-ve/
 │       └── quan-ly-su-kien/
-├── components/                   # React components
+├── components/                   # Components React
 ├── lib/
-│   ├── store.ts                 # Zustand store with API integration
-│   ├── api.ts                   # API client utility
-│   ├── events.ts                # Event data structures
-│   └── utils.ts                 # Utility functions
-├── public/                       # Static assets
-├── backend/                      # Express.js backend
+│   ├── store.ts                 # Store Zustand với tích hợp API
+│   ├── api.ts                   # Utility client API
+│   ├── events.ts                # Cấu trúc dữ liệu sự kiện
+│   └── utils.ts                 # Hàm utility
+├── public/                       # Tài sản tĩnh
+├── backend/                      # Backend Express.js
 │   ├── routes/
 │   │   ├── auth.js
 │   │   ├── events.js
@@ -73,80 +73,80 @@ ticketlab/
 │   ├── SETUP.md
 │   └── postman_collection.json
 ├── database/
-│   └── schema.sql               # SQL Server database schema
-├── .env.local                   # Frontend environment variables
-└── FULLSTACK_README.md          # This file
+│   └── schema.sql               # Schema cơ sở dữ liệu SQL Server
+├── .env.local                   # Biến môi trường frontend
+└── FULLSTACK_README.md          # File này
 ```
 
-## Quick Start
+## Bắt đầu Nhanh
 
-### Prerequisites
+### Điều kiện Tiên quyết
 
-- Node.js v16+ and npm/yarn
+- Node.js v16+ và npm/yarn
 - SQL Server 2019+
 - Git
 
-### 1. Database Setup
+### 1. Thiết lập Cơ sở dữ liệu
 
-1. Open SQL Server Management Studio (SSMS)
-2. Create a new database or use existing one
-3. Execute `database/schema.sql` to create tables and sample data:
+1. Mở SQL Server Management Studio (SSMS)
+2. Tạo cơ sở dữ liệu mới hoặc sử dụng cơ sở dữ liệu hiện có
+3. Thực thi `database/schema.sql` để tạo bảng và dữ liệu mẫu:
    ```sql
-   -- Open database/schema.sql and run in SSMS
+   -- Mở database/schema.sql và chạy trong SSMS
    ```
 
-### 2. Backend Setup
+### 2. Thiết lập Backend
 
 ```bash
-# Navigate to backend directory
+# Điều hướng đến thư mục backend
 cd backend
 
-# Install dependencies
+# Cài đặt dependencies
 npm install
 
-# Create .env file
+# Tạo file .env
 cp .env.example .env
 
-# Edit .env with your SQL Server credentials
+# Chỉnh sửa .env với thông tin đăng nhập SQL Server của bạn
 # DB_SERVER=localhost
 # DB_USER=sa
 # DB_PASSWORD=your_password
 # DB_NAME=TicketLab
 # JWT_SECRET=your_secret_key
 
-# Start backend server
+# Khởi động server backend
 npm start
-# or for development
+# hoặc cho phát triển
 npm run dev
 ```
 
-Backend will run on `http://localhost:3001`
+Backend sẽ chạy trên `http://localhost:3001`
 
-### 3. Frontend Setup
+### 3. Thiết lập Frontend
 
 ```bash
-# In root directory
+# Trong thư mục gốc
 npm install
 
-# Create/update .env.local
+# Tạo/cập nhật .env.local
 echo "NEXT_PUBLIC_API_URL=http://localhost:3001/api" > .env.local
 
-# Start frontend dev server
+# Khởi động server dev frontend
 npm run dev
 ```
 
-Frontend will run on `http://localhost:3000`
+Frontend sẽ chạy trên `http://localhost:3000`
 
-## API Documentation
+## Tài liệu API
 
-### Base URL
+### URL Cơ sở
 ```
 http://localhost:3001/api
 ```
 
-### Authentication Endpoints
+### Điểm cuối Xác thực
 
-#### Register
+#### Đăng ký
 ```http
 POST /auth/register
 Content-Type: application/json
@@ -165,7 +165,7 @@ Response:
 }
 ```
 
-#### Login
+#### Đăng nhập
 ```http
 POST /auth/login
 Content-Type: application/json
@@ -183,29 +183,29 @@ Response:
 }
 ```
 
-### Events Endpoints
+### Điểm cuối Sự kiện
 
-#### Get All Events
+#### Lấy Tất cả Sự kiện
 ```http
 GET /events
 GET /events?category=music
 ```
 
-#### Get Single Event
+#### Lấy Sự kiện Đơn lẻ
 ```http
 GET /events/:id
 ```
 
-#### Create Event (Admin)
+#### Tạo Sự kiện (Quản trị)
 ```http
 POST /events
 Authorization: Bearer {token}
 Content-Type: application/json
 
 {
-  "name": "Event Name",
-  "description": "Event description",
-  "location": "Venue",
+  "name": "Tên Sự kiện",
+  "description": "Mô tả sự kiện",
+  "location": "Địa điểm",
   "category": "music",
   "date": "15/07/2026",
   "price": 500000,
@@ -215,9 +215,9 @@ Content-Type: application/json
 }
 ```
 
-### Orders Endpoints
+### Điểm cuối Đơn hàng
 
-#### Create Order
+#### Tạo Đơn hàng
 ```http
 POST /orders
 Authorization: Bearer {token}
@@ -232,88 +232,88 @@ Content-Type: application/json
 }
 ```
 
-#### Complete Order
+#### Hoàn thành Đơn hàng
 ```http
 POST /orders/:order_id/complete
 Authorization: Bearer {token}
 ```
 
-### Tickets Endpoints
+### Điểm cuối Vé
 
-#### Get My Tickets
+#### Lấy Vé Của Tôi
 ```http
 GET /tickets
 Authorization: Bearer {token}
 ```
 
-## Postman Testing
+## Kiểm tra Postman
 
-1. Import `backend/postman_collection.json` into Postman
-2. Set environment variables:
-   - `token`: From user login response
-   - `admin_token`: From admin login response
-3. Test all endpoints
+1. Nhập `backend/postman_collection.json` vào Postman
+2. Đặt biến môi trường:
+   - `token`: Từ phản hồi đăng nhập người dùng
+   - `admin_token`: Từ phản hồi đăng nhập quản trị
+3. Kiểm tra tất cả điểm cuối
 
-### Sample Test Accounts
-- **User**: test@example.com / 123456
-- **Admin**: admin@ticketlab.com / admin
+### Tài khoản Kiểm tra Mẫu
+- **Người dùng**: test@example.com / 123456
+- **Quản trị**: admin@ticketlab.com / admin
 
-## Features
+## Tính năng
 
-### User Features
-- ✅ User registration and login
-- ✅ Browse events by category
-- ✅ Search and filter events
-- ✅ Book tickets with multiple types (VIP, Standard, Economy)
-- ✅ Simulated payment process
-- ✅ Payment confirmation
-- ✅ View purchased tickets
-- ✅ Responsive mobile design
+### Tính năng Người dùng
+- ✅ Đăng ký và đăng nhập người dùng
+- ✅ Duyệt sự kiện theo danh mục
+- ✅ Tìm kiếm và lọc sự kiện
+- ✅ Đặt vé với nhiều loại (VIP, Tiêu chuẩn, Kinh tế)
+- ✅ Quy trình thanh toán mô phỏng
+- ✅ Xác nhận thanh toán
+- ✅ Xem vé đã mua
+- ✅ Thiết kế đáp ứng trên di động
 
-### Admin Features
-- ✅ Admin dashboard with stats
-- ✅ Create, read, update, delete events
-- ✅ Manage event ticket types and pricing
-- ✅ View all orders and sales
-- ✅ View all user tickets
-- ✅ Role-based access control
+### Tính năng Quản trị
+- ✅ Bảng điều khiển quản trị với thống kê
+- ✅ Tạo, đọc, cập nhật, xóa sự kiện
+- ✅ Quản lý loại vé và giá cả sự kiện
+- ✅ Xem tất cả đơn hàng và doanh số
+- ✅ Xem tất cả vé người dùng
+- ✅ Kiểm soát truy cập dựa trên vai trò
 
-### Technical Features
-- ✅ JWT-based authentication
-- ✅ Secure password hashing (bcrypt)
-- ✅ Real-time database operations
-- ✅ CORS enabled for cross-origin requests
-- ✅ Error handling and validation
-- ✅ Responsive design
-- ✅ Admin role verification
+### Tính năng Kỹ thuật
+- ✅ Xác thực dựa trên JWT
+- ✅ Mã hóa mật khẩu an toàn (bcrypt)
+- ✅ Hoạt động cơ sở dữ liệu thời gian thực
+- ✅ CORS được bật cho yêu cầu chéo nguồn gốc
+- ✅ Xử lý lỗi và xác thực
+- ✅ Thiết kế đáp ứng
+- ✅ Xác minh vai trò quản trị
 
-## User Flows
+## Luồng Người dùng
 
-### Registration & Login Flow
-1. User registers with email, password, and name
-2. Backend hashes password and stores in SQL Server
-3. JWT token issued
-4. Token stored in localStorage
-5. User redirected based on role (admin → dashboard, user → home)
+### Luồng Đăng ký & Đăng nhập
+1. Người dùng đăng ký với email, mật khẩu và tên
+2. Backend mã hóa mật khẩu và lưu trong SQL Server
+3. Token JWT được phát hành
+4. Token được lưu trong localStorage
+5. Người dùng được chuyển hướng dựa trên vai trò (quản trị → bảng điều khiển, người dùng → trang chủ)
 
-### Event Booking Flow
-1. Browse events on home or search page
-2. Click "Dat ve" (Buy ticket) button
-3. Select ticket type and quantity
-4. Proceed to payment page
-5. Simulate payment process
-6. Receive payment confirmation
-7. Ticket added to user's ticket management
-8. Can view ticket details anytime
+### Luồng Đặt Vé Sự kiện
+1. Duyệt sự kiện trên trang chủ hoặc trang tìm kiếm
+2. Nhấp nút "Dat ve" (Mua vé)
+3. Chọn loại vé và số lượng
+4. Tiến hành đến trang thanh toán
+5. Mô phỏng quy trình thanh toán
+6. Nhận xác nhận thanh toán
+7. Vé được thêm vào quản lý vé của người dùng
+8. Có thể xem chi tiết vé bất cứ lúc nào
 
-### Admin Event Management
-1. Login with admin credentials
-2. Access admin dashboard
-3. Create, edit, or delete events
-4. Manage ticket types and pricing
-5. View all orders and user tickets
+### Quản lý Sự kiện Quản trị
+1. Đăng nhập với thông tin quản trị
+2. Truy cập bảng điều khiển quản trị
+3. Tạo, chỉnh sửa hoặc xóa sự kiện
+4. Quản lý loại vé và giá cả
+5. Xem tất cả đơn hàng và vé người dùng
 
-## Environment Variables
+## Biến Môi trường
 
 ### Frontend (.env.local)
 ```
@@ -322,7 +322,7 @@ NEXT_PUBLIC_API_URL=http://localhost:3001/api
 
 ### Backend (.env)
 ```
-# Database
+# Cơ sở dữ liệu
 DB_SERVER=localhost
 DB_PORT=1433
 DB_USER=sa
@@ -341,80 +341,80 @@ JWT_EXPIRE=7d
 FRONTEND_URL=http://localhost:3000
 ```
 
-## Common Issues & Solutions
+## Vấn đề Thường gặp & Giải pháp
 
-### Backend Won't Connect to SQL Server
-- Check if SQL Server is running
-- Verify credentials in .env
-- Ensure TCP/IP is enabled in SQL Server Configuration Manager
-- Check firewall settings
+### Backend Không thể Kết nối với SQL Server
+- Kiểm tra xem SQL Server có đang chạy không
+- Xác minh thông tin đăng nhập trong .env
+- Đảm bảo TCP/IP được bật trong SQL Server Configuration Manager
+- Kiểm tra cài đặt firewall
 
-### Port Already in Use
-- Change PORT in backend .env
-- Or kill the process: `lsof -i :3001` (Mac/Linux) or `netstat -ano | findstr :3001` (Windows)
+### Cổng Đã được Sử dụng
+- Thay đổi PORT trong backend .env
+- Hoặc giết tiến trình: `lsof -i :3001` (Mac/Linux) hoặc `netstat -ano | findstr :3001` (Windows)
 
-### CORS Errors
-- Check backend CORS configuration
-- Verify FRONTEND_URL in backend .env matches your frontend URL
-- Ensure Authorization header is properly formatted
+### Lỗi CORS
+- Kiểm tra cấu hình CORS backend
+- Xác minh FRONTEND_URL trong backend .env khớp với URL frontend của bạn
+- Đảm bảo tiêu đề Authorization được định dạng đúng
 
-### Token Errors
-- Token may be expired (7 days default)
-- Re-login to get a new token
-- Check that JWT_SECRET is consistent across server restarts
+### Lỗi Token
+- Token có thể đã hết hạn (mặc định 7 ngày)
+- Đăng nhập lại để nhận token mới
+- Kiểm tra JWT_SECRET nhất quán qua các lần khởi động server
 
-## API Security
+## Bảo mật API
 
-- Passwords are hashed with bcrypt (10 salt rounds)
-- JWT tokens expire after 7 days
-- Admin endpoints require role verification
-- All sensitive data is sent over HTTP (use HTTPS in production)
-- CORS enabled only for frontend URL
+- Mật khẩu được mã hóa với bcrypt (10 vòng salt)
+- Token JWT hết hạn sau 7 ngày
+- Điểm cuối quản trị yêu cầu xác minh vai trò
+- Tất cả dữ liệu nhạy cảm được gửi qua HTTP (sử dụng HTTPS trong sản xuất)
+- CORS chỉ bật cho URL frontend
 
-## Database Schema
+## Schema Cơ sở dữ liệu
 
-### Tables
-- `Users` - User accounts with email, hashed password, role
-- `Events` - Event information (name, location, category, date)
-- `TicketTypes` - Ticket categories for each event (VIP, Standard, etc.)
-- `Orders` - Purchase orders with status (pending, completed)
-- `UserTickets` - Confirmed user tickets from completed orders
+### Bảng
+- `Users` - Tài khoản người dùng với email, mật khẩu mã hóa, vai trò
+- `Events` - Thông tin sự kiện (tên, địa điểm, danh mục, ngày)
+- `TicketTypes` - Danh mục vé cho mỗi sự kiện (VIP, Tiêu chuẩn, v.v.)
+- `Orders` - Đơn hàng mua với trạng thái (đang chờ, hoàn thành)
+- `UserTickets` - Vé người dùng đã xác nhận từ đơn hàng hoàn thành
 
-### Relationships
-- Users (1) → Many Orders
-- Events (1) → Many TicketTypes, Orders, UserTickets
-- TicketTypes (1) → Many Orders
-- Orders (1) → Many UserTickets
+### Mối quan hệ
+- Users (1) → Nhiều Orders
+- Events (1) → Nhiều TicketTypes, Orders, UserTickets
+- TicketTypes (1) → Nhiều Orders
+- Orders (1) → Nhiều UserTickets
 
-## Production Deployment
+## Triển khai Sản xuất
 
 ### Frontend (Vercel)
-1. Push code to GitHub
-2. Connect repository to Vercel
-3. Set environment variables
-4. Deploy automatically
+1. Push code lên GitHub
+2. Kết nối repository với Vercel
+3. Đặt biến môi trường
+4. Triển khai tự động
 
 ### Backend (VPS/Server)
-1. Install Node.js and SQL Server on server
+1. Cài đặt Node.js và SQL Server trên server
 2. Clone repository
-3. Configure .env with production values
-4. Use PM2 for process management:
+3. Cấu hình .env với giá trị sản xuất
+4. Sử dụng PM2 để quản lý tiến trình:
    ```bash
    npm install -g pm2
    pm2 start server.js --name ticketlab-backend
    ```
-5. Set up reverse proxy with Nginx
+5. Thiết lập reverse proxy với Nginx
 
-## Support & Documentation
+## Hỗ trợ & Tài liệu
 
-- Backend API docs: See `backend/SETUP.md`
-- Postman Collection: `backend/postman_collection.json`
-- Database Schema: `database/schema.sql`
+- Tài liệu API backend: Xem `backend/SETUP.md`
+- Bộ sưu tập Postman: `backend/postman_collection.json`
+- Schema Cơ sở dữ liệu: `database/schema.sql`
 
-## License
+## Giấy phép
 
-Private Project - TicketLab 2026
+Dự án Riêng tư - TicketLab 2026
 
-## Contributors
+## Người đóng góp
 
-Built with Next.js, Express.js, and SQL Server ❤️
+Được xây dựng với Next.js, Express.js và SQL Server ❤️
